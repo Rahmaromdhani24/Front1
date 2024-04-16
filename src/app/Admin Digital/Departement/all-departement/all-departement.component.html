@@ -1,0 +1,170 @@
+<p>all-departement works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   <!-- CSS File Link -->
+   <link rel="stylesheet" href="/assets/style1.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h3>
+            <i class="uil uil-hospital"></i>
+            Clinique NAR
+         </h3>
+      </div>
+      <div class="sidebar-menu">
+         <ul>
+            <li style=" background-color: #006eff;" routerLink="/homeDigitalMedical">
+               <i style="color: #FFFF;" class="uil uil-dashboard"></i>
+               <span style="color: #FFFF;">Tableau de bord</span>
+            </li>
+            <li routerLink="/rendezVous">
+               <i class="uil uil-clipboard-notes"></i>
+                <span>Rendez-vous</span>
+            </li>
+            <li routerLink="/operations">
+                <i class="icofont-ui-cut"></i>
+                <span>Opérations</span>
+            </li>
+            <li routerLink="/secretaires">
+               <i class="uil uil-user-nurse"></i>
+              <span>Secrétaire médical</span>
+           </li>
+            <li routerLink="/medecins">
+                <i class="icofont-doctor"></i>
+               <span>Médecins</span>
+            </li>
+            <li routerLink="/patients">
+              <i class="uil uil-accessible-icon-alt"></i>
+               <span>Patients</span>
+            </li>
+            <li class="active" routerLink="/allDepartements">
+                <i style="color: #006eff;" class="uil uil-medical-square-full"></i>
+               <span style="color: #006eff;">Départements</span>
+            </li>
+            <li routerLink="/profileAD">
+               <i class="icofont-user-suited"></i>
+               <span>Mon Profile</span>
+            </li>
+            <li (click)="logout()">
+               <i class="uil uil-signin"></i>
+               <span>Déconnexion</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Départements
+         </h2>
+
+         <!--div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="recherche ici ...">
+         </div-->
+
+         <div class="admin-box flex" >
+            <img src={{imagePath}} width="30px" height="30px" style="position: absolute;right:360px;top:25px">
+            <div>
+               <h2 style="margin-left: 435px;margin-top: 20px;">{{nomPrenomAdmin}}</h2>
+               <small style="margin-left: 513px;">Administrateur Supérieur </small>
+            </div>
+         </div>
+         <br><br>
+      </header>
+      
+      <main >
+        <!-- tableau d'operations -->
+        <div class="wrapper flex">
+         <div class="operations">
+            <div class="card-header flex">
+               <h3>Départements</h3>
+               <div class="search-box">
+                  <i class="uil uil-search"></i>
+                  <input [(ngModel)]="texte"  type="text" placeholder="recherche ici ...">
+               </div>
+               <div><img src="/assets/AdminDigital/assets/img/pdff.png" class="icon1" width="35px" height="35px"></div>
+               <!--button><i class="uil uil-plus-circle"  style="font-size: 24px;" (click)="openAddDepartementModal()"></i></button-->
+                <button data-toggle="modal" data-target="#exampleModalCenter"><i class="icofont-ui-add" ></i></button>    
+            </div>
+
+            <table class="table">
+               <thead>
+                 <tr>
+                   <th scope="col">ID</th>
+                   <th scope="col">Nom Département</th>
+                   <th scope="col">Date de création </th>
+                   <th scope="col">&nbsp;&nbsp;&nbsp;Actions</th>    
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor ="let specialite of service.DepartementData">
+                     <td>{{ specialite.id }}</td>
+                     <td>{{ specialite.nom }}</td>
+                     <td>&nbsp;&nbsp;{{ formatDate(specialite.date_creation) }}</td>
+                     <td>
+                        <img src="/assets/icons/eye.png" class="icon" width="30px" height="30px">
+                        <img src="/assets/icons/edit.png" class="icon" width="30px" height="30px">
+                        <img src="/assets/icons/delete.png" class="icon" width="30px" height="30px"  (click)="supprimer(specialite.id)">
+                     </td>
+                 </tr>
+               </tbody>
+             </table>
+             <!--nav aria-label="Page navigation example">
+               <ul class="pagination justify-content-end">
+                   <li class="page-item">
+                       <a class="page-link"  tabindex="-1" (click)="navigateToPage(currentPage - 1)" [class.disabled]="currentPage === 1">Previous</a>
+                   </li>
+                   <!-- Boucle sur les pages à afficher -->
+                   <!--li class="page-item" *ngFor="let page of pages">
+                       <a class="page-link"  (click)="navigateToPage(page)" [class.active]="currentPage === page">{{ page }}</a>
+                   </li>
+                   <li class="page-item">
+                       <a class="page-link"  (click)="navigateToPage(currentPage + 1)" [class.disabled]="currentPage === totalPages">Next</a>
+                   </li>
+               </ul>
+            </nav-->
+         </div>
+      </div>             
+      </main> 
+   </div>
+   <div style="position: fixed;margin-left: 525px; margin-top:186px;"class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" id="rahma">
+          <div class="modal-header" style="height: 120px;">
+            <h5 class="modal-title" id="exampleModalLongTitle" style="margin-top: 15px;
+            margin-left: 108px;">Ajouter un nouvelle département<br></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+            style="position: fixed;margin-left:490px; margin-top: 6px;height: 49px;">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="height: 200px;">
+            <form #f=ngForm>
+                  <div class="col-lg-12">
+                  <div class="form-group">
+                  <label class="labell"> Nom de nouveau département : </label>
+                  <input  class ="inputt"type="text" ngModel name="nom"required #nom="ngModel" placeholder="nom de département">
+                  </div>
+                  </div>          
+            </form>
+          </div>
+          <div class="modal-footer" style="height:107px;display: flex;justify-content: center;">
+            <button type="button" class="btn22" data-dismiss="modal">Close</button>
+            <button type="submit" [disabled]=!f.valid class="btn btn-primary" (click)="sauvegarder(f)" >Sauvgarder</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+</body>
+</html>
+
+  

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   <!-- CSS File Link -->
+   <link rel="stylesheet" href="/assets/style1.css">
+</head>
+<body >
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h3>
+            <i class="uil uil-hospital"></i>
+            Clinique NAR
+         </h3>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li style=" background-color: #006eff;" routerLink="/homeDigitalMedical">
+               <i style="color: #FFFF;" class="uil uil-dashboard"></i>
+               <span style="color: #FFFF;">Tableau de bord</span>
+            </li>
+            <li routerLink="/rendezVous">
+               <i class="uil uil-clipboard-notes"></i>
+                <span>Rendez-vous</span>
+            </li>
+            <li routerLink="/operations">
+               <i class="icofont-ui-cut"></i>
+                <span>Opérations</span>
+            </li>
+            <li routerLink="/secretaires">
+               <i class="uil uil-user-nurse"></i>
+              <span>Secrétaire médical</span>
+           </li>
+           <li routerLink="/medecins">
+            <i class="icofont-doctor"></i>
+               <span>Médecins</span>
+            </li>
+            <li routerLink="/patients">
+               <i class="uil uil-accessible-icon-alt"></i>
+               <span>Patients</span>
+            </li>
+            <li routerLink="/allDepartements">
+                <i class="uil uil-medical-square-full"></i>
+               <span>Départements</span>
+            </li>
+            <li class="active" routerLink="/profileAD">
+               <i style="color: #006eff;"  class="icofont-user-suited"></i>
+              <span style="color: #006eff;">Mon profile</span>
+           </li>
+            <li (click)="logout()">
+               <i class="uil uil-signin"></i>
+               <span>Déconnexion</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content" style="background-color: #FFFFFF;">
+      <header class="flex" style="background-color: #FFFFFF;">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Tableau de bord
+         </h2>
+         <div class="admin-box flex" >
+            <img src={{imagePath}} width="30px" height="30px">
+            <div>
+               <h4>{{nomPrenomAdmin}}</h4>
+               <small style="margin-left: 30px;">Administrateur Supérieur </small>
+            </div>
+         </div>
+      </header>
+      <div class="container-xl px-4 mt-4" style="background-color: #FFFFFF;">
+         <!-- Account page navigation-->
+         <div class="row">
+             <div class="col-xl-8" style="margin-top: 0px;background-color: #FFFFFF;">
+                 <!-- Account details card-->
+                 <div class="card mb-4" style="width: 670px;margin-left: 185px;position: fixed;">
+                     <div class="card-body">
+                         <form style="height:520px; " (ngSubmit)="modifierProfile(fl)" #fl=ngForm>
+                           <div class="container">
+
+                              <div class="avatar-upload">
+                              <div class="avatar-edit" *ngIf="testImage === null ; else close">
+                              <input type='file' id="imageUpload" (change)="onSelectFile($event)" 
+                              class="select-profile-picture"  accept=".png, .jpg, .jpeg" />
+                              
+                                    <label for="imageUpload"></label>
+                              </div>
+                              <ng-template #close>
+                                <div class="avatar-close" >
+                                 <label (click)="changeImage()" class="csslabel">
+                                <i class="icofont-close" style="color:  #757575; position: absolute;top: 10px;left: 10px;" ></i></label>
+                                    <label for="imageUpload"></label>
+                                  </div>
+                                </ng-template>
+                              <div class="avatar-preview">
+                                <img id="imagePreview" src={{imagePath2}} style="width:138px ; height: 138px;" >
+                              </div>
+                              </div>
+                              </div>
+                              
+                             <!-- Form Group (username)-->
+                             <div class="mb-3">
+                                 <br>
+                                 <label  style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;Nom d'utilisateur</label><br>
+                                 <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username"
+                                 [(ngModel)]=admin.username ngModel name="username" required #username="ngModel"  style="margin-left: 30px;">
+                                 <span style="color:#e54f4f ;margin-left: 48px;position: absolute;"
+                                 *ngIf="!username.valid && username.touched">Entrer  votre prénom  </span>
+                              </div>
+                             <!-- Form Row-->
+                             <div class="row gx-3 mb-3">
+                                 <!-- Form Group (first name)-->
+                                 <div class="col-md-6">
+                                     <label  style="margin-left: 35px;">Nom</label>
+                                     <input  style="margin-left: 30px;" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie"
+                                     [(ngModel)]=admin.nom ngModel name="nom" required #nom="ngModel" >
+                                     <span style="color:#e54f4f ;margin-left: 48px;position: absolute;"
+                                     *ngIf="!nom.valid && nom.touched">Entrer  votre nom  </span>
+                                 </div>
+                                 <!-- Form Group (last name)-->
+                                 <div class="col-md-6">
+                                     <label >Prénom</label>
+                                     <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna"
+                                     [(ngModel)]=admin.prenom ngModel name="prenom" required #prenom="ngModel" >
+                                     <span style="color:#e54f4f ;margin-left: 18px;position: absolute;"
+                                 *ngIf="!prenom.valid && prenom.touched">Entrer  votre prénom  </span>
+                                 </div>
+                             </div>
+                             <div class="row gx-3 mb-3">
+                              <!-- Form Group (first name)-->
+                              <div class="col-md-6">
+                                 <label style="margin-left: 35px;"> Addresse Email</label>
+                                 <input style="margin-left: 30px;" class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" 
+                                 [(ngModel)]=admin.email ngModel name="email" required #email="ngModel" >
+                                 <span style="color:#e54f4f ;margin-left: 18px;position: absolute;"
+                                 *ngIf="!email.valid && email.touched">Entrer  votre prénom  </span>
+                              </div>
+                              <!-- Form Group (last name)-->
+                              <div class="col-md-6">
+                                 <label style="margin-left: 5px;">Numéro CIN</label>
+                                     <input  class="form-control" id="inputFirstName" type="tel" 
+                                     placeholder="Enter your phone number" [(ngModel)]=admin.cin ngModel name="cin" required #cin="ngModel" >
+                                     <span style="color:#e54f4f ;margin-left: 48px;position: absolute;"
+                                     *ngIf="!cin.valid && cin.touched">Entrer  votre prénom  </span>
+                              </div>
+                          </div>
+                             <!-- Form Row        -->
+                             <div class="row gx-3 mb-3">
+                             </div>
+                           
+                             <button style="margin-left: 250px;" class="btn btn-primary" type="submit" [disabled]=!fl.valid>Enregistrer</button>
+                             <br>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+   </div>
+
+</body>
+</html>

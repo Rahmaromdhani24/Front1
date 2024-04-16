@@ -1,0 +1,6 @@
+.ligne-verticale {
+    border-left: 2px solid #0000003d; /* Vous pouvez ajuster la largeur et la couleur de la ligne ici */
+    height: 331px;
+    margin-left: 563px;
+    margin-top: 17px; /* Hauteur de la ligne */
+}

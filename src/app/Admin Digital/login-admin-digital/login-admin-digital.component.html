@@ -1,0 +1,118 @@
+<div class="preloader">
+    <div class="loader">
+        <div class="loader-outter"></div>
+        <div class="loader-inner"></div>
+  
+        <div class="indicator"> 
+            <svg width="16px" height="12px">
+                <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+            </svg>
+        </div>
+    </div>
+  </div>
+  
+  <header class="header" >
+  <!-- Topbar -->
+  <div class="topbar">
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-5 col-12">
+      <!-- Contact -->
+      <ul class="top-link">
+        <li><a  href="/aboutUs" >À propos de nous</a></li>
+        <li><a  href="/p_medecin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Médecin </u></a></li>
+        <li><a  href="/p_patient">&nbsp;&nbsp;&nbsp;<u>Patient </u></a></li>
+        <li><a  href="/secretaire">&nbsp;&nbsp;&nbsp;<u>Sécretaire </u></a></li>
+       </ul>
+      <!-- End Contact -->
+    </div>
+    <div class="col-lg-6 col-md-7 col-12">
+      <!-- Top Contact -->
+      <ul class="top-contact">
+        <li><i class="fa fa-phone"></i>+216 73 123 456</li>
+        <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">clinique.nar&#64;gmail.com</a></li>
+        <li><a  href="/admin"><img src="/assets/img/parametres.png" width="30px" height="30px" ></a></li>      <!-- <li style="margin-right: -100px;margin-top: -25px;"><img src="/assets/img/adminHome.jpg" routerLink="/admin" width="100px" height="100px"></li> -->
+
+      </ul>
+      <!-- End Top Contact -->
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- End Topbar -->
+  
+  <!-- Header Inner -->
+  <div class="header-inner">
+  <div class="container">
+  <div class="inner">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-12">
+        <!-- Start Logo -->
+        <div class="logo" width="400px">
+          <a href="index.html">
+            <img src="/assets/img/logologo.png" >
+            <img src="/assets/img/test.png" alt="#">
+         </a>
+        </div>
+        <!-- End Logo -->
+        <!-- Mobile Nav -->
+        <div class="mobile-nav"></div>
+        <!-- End Mobile Nav -->
+      </div>
+      <div class="col-lg-2 col-12" style="position: fixed;margin-left: 1004px;">
+        <div class="get-quote">
+          <a href="/rendevous" class="btn">Accueil</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!--/ End Header Inner -->
+  </header>
+  <!-- End Header Area -->
+    <section class="login section"style="margin-top:-70px;" >
+ 
+    <div class="container">
+   <!-- <span  toggle="#password-field" class="fa fa-fw fa-eye-slash  toggle-password"><img src="assets/oeil.png" width="20px" height="20px" id="oeil"></span> -->
+   <div class="inner">
+    <div class="row">
+    <div class="col-lg-6">
+  
+    <div class="login-left1">
+         <div class="ligne-verticale"></div>
+    </div>
+    </div>
+    <div class="col-lg-6">
+    <div class="login-form">
+    <h2>Connectez-vous ici</h2>
+    <form class="form" (ngSubmit)=" login(f)" #f=ngForm>
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="form-group">
+    <input  type="text" ngModel name="username"required #username="ngModel" placeholder="nom d'utilisateur">
+   </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="form-group">
+    <input style="text-transform: lowercase;" type="password" ngModel name="password"required #password="ngModel" placeholder="mot de passe">
+   
+      </div>
+    </div>
+    <div class="col-6"  style="margin-left: 110px;">
+    <div class="form-group login-btn">
+    <button class="btn" type="submit" [disabled]=!f.valid>Connexion</button>
+    </div>
+    </div>
+    </div>
+    </form>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>

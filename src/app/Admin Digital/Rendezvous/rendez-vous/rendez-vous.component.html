@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   <!-- CSS File Link -->
+   <link rel="stylesheet" href="/assets/style1.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h3>
+            <i class="uil uil-hospital"></i>
+            Clinique NAR
+         </h3>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li style=" background-color: #006eff;" routerLink="/homeDigitalMedical">
+                <i style="color: #FFFF;" class="uil uil-dashboard"></i>
+                <span style="color: #FFFF;">Tableau de bord</span>
+             </li>
+            <li class="active" routerLink="/rendezVous">
+                <i style="color: #006eff;" class="uil uil-clipboard-notes"></i>
+                <span style="color: #006eff;">Rendez-vous</span>
+            </li>
+            <li routerLink="/operations">
+               <i class="icofont-ui-cut"></i>
+                <span>Opérations</span>
+            </li>
+            <li routerLink="/secretaires">
+               <i class="uil uil-user-nurse"></i>
+              <span>Secrétaire médical</span>
+           </li>
+           <li routerLink="/medecins">
+            <i class="icofont-doctor"></i>
+               <span >Médecins</span>
+            </li>
+            <li routerLink="/patients">
+               <i  class="uil uil-accessible-icon-alt"></i>
+               <span >Patients</span>
+            </li>
+            <li routerLink="/allDepartements">
+                <i class="uil uil-medical-square-full"></i>
+               <span>Départements</span>
+            </li>       
+            <li routerLink="/profileAD">
+               <i class="icofont-user-suited"></i>
+               <span>Mon Profile</span>
+            </li>
+            <li (click)="logout()">
+               <i class="uil uil-signin"></i>
+               <span>Déconnexion</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Rendez-vous
+         </h2>
+         <div class="admin-box flex" >
+            <img src={{imagePath}} width="30px" height="30px">
+            <div>
+               <h2>{{nomPrenomAdmin}}</h2>
+               <small style="margin-left: 60px;">Administrateur Supérieur </small>
+            </div>
+         </div>
+      </header>
+
+      <main>
+        <!-- tableau d'operations -->
+        <div class="wrapper flex" *ngIf="service.testTabPatients !== 0 ; else tabVide">
+         <div class="operations">
+            <div class="card-header flex">
+               <h3>Rendez-vous réservé</h3>
+               <div class="search-box">
+                  <i class="uil uil-search"></i>
+                  <input [(ngModel)]="texte"  type="text" placeholder="recherche ici ...">
+               </div>
+            </div>
+            <table class="table" >
+               <thead>
+                 <tr>
+                   <th scope="col">ID</th>
+                   <th scope="col">Nom Patient </th>
+                   <th scope="col">Date & Heure</th>
+                   <th scope="col">genre</th>
+                   <th scope="col">Télephone</th>
+                   <th scope="col">Actions</th>
+                   
+                   
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor ="let patient of service.PatientData">
+                   <th scope="row">{{ patient.id }}</th>
+                   <td>{{ patient.nom }} &nbsp;&nbsp;{{ patient.prenom }}</td>
+                   <td>{{ patient.gender }} </td>
+                   <td>{{ patient.telephone }} </td>
+                   <td>&nbsp;&nbsp;&nbsp;{{ formatDate(patient.date_inscription) }}</td>
+                   <td>
+                     <img src="/assets/icons/edit.png" class="icon" width="30px" height="30px" >
+                     <img src="/assets/icons/delete.png" class="icon" width="30px" height="30px" (click)="supprimer(patient.id)">
+                   </td>
+                 </tr>
+
+               </tbody>
+             </table>
+             
+
+         </div>
+
+    
+      </div>
+   <ng-template #tabVide >
+      <div class="imageNotFound">
+         <img src="/assets/AdminDigital/assets/img/1234.png">
+         <h4 class="alignemennt"><br>Pas des patients pour le moment</h4>
+      </div>
+     
+   </ng-template> 
+
+      </main>
+   </div>
+
+</body>
+</html>

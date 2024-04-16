@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   <!-- CSS File Link -->
+   <link rel="stylesheet" href="/assets/style1.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h3 style="">
+            <i class="uil uil-hospital"></i>
+            Clinique NAR
+         </h3>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li routerLink="/homeMedecin">
+               <i class="uil uil-dashboard"></i>
+               <span>&nbsp;Tableau de bord</span>
+            </li>
+            <li routerLink="/viewRendez">
+                 <i class="uil-clipboard-notes"></i>
+                <span>&nbsp;Rendez Vous</span>
+            </li>
+            <li routerLink="/viewMedecin">
+                <i class="icofont-doctor"></i>
+                <span>&nbsp;Médecins</span>
+            </li>
+            <li routerLink="/view-patient">
+                <i class="uil uil-accessible-icon-alt"></i>
+               <span>&nbsp;Patients</span>
+            </li>
+           
+            <li routerLink="/viewDossier">
+                  <i class="uil-clipboard-notes"></i>
+               <span>&nbsp;Dossier Medicale</span>
+            </li>
+            <li routerLink="/view-plage">
+                  <i class="uil uil-calendar-alt"></i>
+               <span>&nbsp;Plage Horraire</span>
+            </li>
+            <li (click)="logout()">
+               <i class="uil uil-signin"></i>
+               <span>&nbsp;Déconnexion</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Tableau de bord 
+         </h2>
+
+         <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="recherche ici ...">
+         </div>
+
+         
+      </header>
+
+      <main>
+         <div class="cards">
+            <div class="single-card">
+               <div>
+                  <span>Aujourd'hui Patients</span>
+                  <h2>231</h2>
+               </div>
+               <i class="uil uil-user-plus"></i>
+               
+            </div>
+            
+            <div class="single-card">
+               <div>
+                  <span>Rendez Vous</span>
+                  <h2>150</h2>
+               </div>
+               <i class="uil uil-calendar-alt"></i>
+            </div>
+            <div class="single-card">
+                <div>
+                   <span>Opérations</span>
+                   <h2>54</h2>
+                </div>
+                <i class="icofont-ui-cut"></i>
+             </div>
+            <div class="single-card">
+               <div>
+                  <span>Online Rendez Vous</span>
+                  <h2>42</h2>
+               </div>
+               <i class="icofont-money"></i>
+            </div>
+         </div>
+
+
+         <div class="wrapper flex">
+            <div class="projects">
+               <div class="card-header flex">
+                  <h3>Liste des Medecins </h3>
+                  <button>voir tout <i class="uil uil-angle-right"></i></button>
+               </div>
+
+               <table>
+                  <thead>
+                     <th>
+                        <tr>
+                           <td>image</td>
+                           <td>Nom de Medecin</td>
+                           <td>Status</td>
+                        </tr>
+                     </th>
+                  </thead>
+
+                  <tbody>
+                     <tr>
+                        <td><img src="./assets/img/author2.jpg"  width="30px" height="30px"></td>
+                        <td>Dr Sarah</td>
+                        <td class="status-box">
+                           <span class="status review"></span>Available
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><img src="./assets/img/author2.jpg" width="30px" height="30px"></td>
+                        <td>Dr Nihel</td>
+                        <td class="status-box">
+                           <span class="status review"></span>Absent
+                        </td>
+                     </tr>
+                     
+                  </tbody>
+               </table>
+            </div>
+
+            <div class="customers">
+               <div class="card-header flex">
+                  <h3> Patients Group</h3>
+               
+                  <button>voir tout <i class="uil uil-angle-right"></i></button>
+               </div>
+
+               <table>
+                  
+                  <tr class="flex">
+                     <td class="flex">
+                        <div>
+                           <h1>Cholsteroal</h1>
+                          
+                        </div>
+                     </td>
+                     <td >
+                     <div class="badge badge-solid-green">5 Patients</div>
+                     </td>
+                  </tr>
+                  <tr class="flex">
+                     <td class="flex">
+                        <div>
+                           <h1>Diabtic</h1>
+                          
+                        </div>
+                     </td>
+                     <td >
+                        <div class="badge badge-solid-orange">14 Patients</div>
+                    </td>
+                  </tr>
+                  <tr class="flex">
+                     <td >
+                      
+                        <div>
+                           <h1>Malaria</h1>
+                        
+                        </div>
+                     </td>
+
+                     <td >
+                        <div class="badge badge-solid-orange">20 patients</div>
+                    </td>
+                  </tr>
+                  
+               </table>
+            </div>
+       
+         </div>
+        <!-- tableau d'operations -->
+        <div class="customers">
+            <div class="card-header flex">
+               <h3> Aujourd'hui le Rendez Vous</h3>
+               <button>voir tout <i class="uil uil-angle-right"></i></button>
+            </div>
+
+            <table>
+                <thead>
+                    <th>
+                        <tr>
+                          <td>ID</td>
+                          <td>Nom Patient</td>
+                          <td>Genre</td>
+                          <td>dernier visite</td>
+                          <td>Maladies</td> 
+                          <td>Actions</td> 
+                        </tr>
+                    </th>
+                 </thead>
+
+                 <tbody>
+                 <tr >
+                  <td id="centrer-texte">1</td>
+                  <td>Flen ben foulen</td>
+                  
+                    <td  class="text-truncate">
+                        Male
+                          
+                    </td>
+                  
+                  <td>10 - 01 - 2024</td>
+                  <td>Diabete</td> 
+                  <td>
+                    <i class="uil uil-user-circle"></i>
+                    <i class="uil uil-calender"></i>
+                    <i class="uil uil-phone-alt"></i>
+                 </td>
+               </tr>
+    
+            </tbody>
+        </table>
+         </div>
+      </main>
+   </div>
+
+
+</body>
+</html>

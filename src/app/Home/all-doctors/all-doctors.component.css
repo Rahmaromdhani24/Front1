@@ -1,0 +1,6 @@
+.centrer_dropdown{
+    display: flex; /* Utiliser flexbox pour aligner le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    margin-top: 30px;
+}

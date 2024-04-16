@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   <!-- CSS File Link -->
+   <link rel="stylesheet" href="/assets/style1.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h3>
+            <i class="uil uil-hospital"></i>
+            Clinique NAR
+         </h3>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li style=" background-color: #006eff;" routerLink="/homeMedecin">
+               <i style="color: #FFFF;" class="uil uil-dashboard"></i>
+               <span style="color: #FFFF;">&nbsp;Tableau de bord</span>
+            </li>
+            <li routerLink="/viewRendez">
+                 <i class="uil-clipboard-notes"></i>
+                <span>&nbsp;Rendez Vous</span>    
+            </li>
+            <li class="active" routerLink="/viewMedecin">
+               <i style="color: #006eff;" class="icofont-doctor"></i>
+              <span style="color: #006eff;">&nbsp;Médecins</span>
+           </li>
+            <li routerLink="/view-patient">
+                <i class="uil uil-accessible-icon-alt"></i>
+               <span>&nbsp;Patients</span>
+            </li>      
+            <li routerLink="/viewDossier">
+                  <i class="uil-clipboard-notes"></i>
+               <span>&nbsp;Dossier Medicale</span>
+            </li>
+            <li routerLink="/view-plage">
+                  <i class="uil uil-calendar-alt"></i>
+               <span>&nbsp;Plage Horraire</span>
+            </li>
+            <li (click)="logout()">
+               <i class="uil uil-signin"></i>
+               <span>&nbsp;Déconnexion</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+          <i class="icofont-doctor"></i>
+            Médecins
+         </h2>
+        
+         <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input  [(ngModel)]=texte class="form-control ml-25" data-toggle="modal" data-target="#exampleModal"
+            type="text" placeholder="recherche ici ...">
+         </div>
+
+         
+      </header>
+
+      <main>
+        
+         <div class="customers">
+            <div class="card-header flex">
+            <h3>Liste des Medecins</h3>
+           
+            </div>
+           
+            <table >
+               <thead>
+                   <th>
+                       <tr>
+                         <td>Image</td>
+                         <td>Nom  </td>
+                         <td>Prénom </td>
+                         <td>Spécialité</td>
+                         <td>Email</td>
+                         <td>Telephone</td> 
+                       </tr>
+                   </th>
+                </thead>
+           
+                <tbody>
+                <tr *ngFor="let vous of medecins" >
+                 <td id="centrer-texte">{{vous.image}}</td>
+                 <td>{{vous.nom}}</td>
+                 <td>{{vous.prenom}}</td>
+                 <td>{{vous.specialite}}</td>
+                 <td>{{vous.email}}</td>
+                 <td>{{vous.telephone}}</td>
+                
+                
+              </tr>
+           
+           </tbody>
+           </table>
+                   </div>
+            </main>
+   </div>
+</body>
+</html>

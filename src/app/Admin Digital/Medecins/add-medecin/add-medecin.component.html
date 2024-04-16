@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- iconscout cdn path -->
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+   <!-- CSS File Link -->
+   <link rel="stylesheet" href="/assets/style1.css">
+</head>
+<body>
+   <div class="sidebar" id="sidebar">
+      <div class="logo">
+         <h3>
+            <i class="uil uil-hospital"></i>
+            Clinique NAR
+         </h3>
+      </div>
+
+      <div class="sidebar-menu">
+         <ul>
+            <li style=" background-color: #006eff;" routerLink="/homeDigitalMedical">
+                <i style="color: #FFFF;" class="uil uil-dashboard"></i>
+                <span style="color: #FFFF;">Tableau de bord</span>
+             </li>
+            <li>
+                <i class="uil uil-clipboard-notes"></i>
+                <span>Rendez-vous</span>
+            </li>
+            <li>
+                <i class="icofont-ui-cut"></i>
+                <span>Opérations</span>
+            </li>
+            <li class="active">
+                <i style="color: #006eff;"  class="icofont-doctor"></i>
+               <span style="color: #006eff;">Médecins</span>
+            </li>
+            <li>
+              <i class="uil uil-accessible-icon-alt"></i>
+               <span>Patients</span>
+            </li>
+            <li routerLink="/allDepartements">
+                <i class="uil uil-medical-square-full"></i>
+               <span>Départements</span>
+            </li>       
+            <li routerLink="/profileAD">
+               <i class="icofont-user-suited"></i>
+               <span>Mon Profile</span>
+            </li>
+            <li (click)="logout()">
+               <i class="uil uil-signin"></i>
+               <span>Déconnexion</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="main-content" id="main-content">
+      <header class="flex">
+         <h2>
+            <i class="uil uil-bars" id="menu-icon"></i>
+            Tableau de bord
+         </h2>
+
+         <div class="search-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="recherche ici ...">
+         </div>
+
+         <div class="admin-box flex" >
+            <img src={{imagePath}} width="30px" height="30px">
+            <div>
+               <h2>{{nomPrenomAdmin}}</h2>
+               <small>Administrateur Supérieur </small>
+            </div>
+         </div>
+      </header>
+    </div>
+
+</body>
+</html>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
